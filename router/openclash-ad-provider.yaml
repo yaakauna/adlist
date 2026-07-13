@@ -1,0 +1,7 @@
+  AdBlockDNS:
+    type: http
+    behavior: domain
+    format: text
+    interval: 28800
+    path: ./rule_provider/adblockmosdns.txt
+    url: https://raw.githubusercontent.com/yaakauna/adlist/main/adblockmosdns.txt

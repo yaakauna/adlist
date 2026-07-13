@@ -27,6 +27,8 @@ is registered as a domain rule-provider in Mihomo and imported into
 `fake-ip-filter`, so ad domains bypass Fake-IP and reach MosDNS, which returns
 NXDOMAIN. Normal domains keep the original OpenClash Fake-IP behavior. The
 rule-provider is not referenced by any routing `REJECT` rule.
+The provider fragment used on OpenClash is available at
+`router/openclash-ad-provider.yaml`.
 
 Source data is distributed under the upstream project's GPL-3.0 license. See
 `LICENSE` and the upstream project for attribution and source details.
