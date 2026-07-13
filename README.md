@@ -22,9 +22,11 @@ It checks the blocklist before cache lookup and returns NXDOMAIN for blocked
 domains. Put local false-positive exceptions in
 `/etc/mosdns/rule/adblock-allowlist.txt`.
 
-The deployed DNS path is `dnsmasq -> MosDNS -> OpenClash DNS`. MosDNS does not
-cache responses because the next hop uses Fake-IP mode; OpenClash owns that
-cache and the Fake-IP mapping lifecycle.
+The deployed DNS path remains `dnsmasq -> OpenClash DNS`. The same subscription
+is registered as a domain rule-provider in Mihomo and imported into
+`fake-ip-filter`, so ad domains bypass Fake-IP and reach MosDNS, which returns
+NXDOMAIN. Normal domains keep the original OpenClash Fake-IP behavior. The
+rule-provider is not referenced by any routing `REJECT` rule.
 
 Source data is distributed under the upstream project's GPL-3.0 license. See
 `LICENSE` and the upstream project for attribution and source details.
